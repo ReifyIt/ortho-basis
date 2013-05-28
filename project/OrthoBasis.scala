@@ -113,10 +113,9 @@ object OrthoBasis extends Build {
   lazy val docSettings = Seq(
     scalacOptions in doc <++= (version, baseDirectory in LocalProject("ortho-basis")) map { (version, baseDirectory) =>
       val tagOrBranch = if (version.endsWith("-SNAPSHOT")) "master" else "v" + version
-      val docSourceUrl = "https://github.com/reifyit/basis/tree/" + tagOrBranch + "€{FILE_PATH}.scala"
+      val docSourceUrl = "https://github.com/reifyit/ortho-basis/tree/" + tagOrBranch + "€{FILE_PATH}.scala"
       Seq("-groups",
           "-implicits",
-          "-implicits-hide:basis.control.MaybeOps,.",
           "-diagrams",
           "-sourcepath", baseDirectory.getAbsolutePath,
           "-doc-source-url", docSourceUrl)
